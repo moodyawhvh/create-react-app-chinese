@@ -1,39 +1,41 @@
 ---
 id: available-scripts
-title: Available Scripts
-sidebar_label: Available Scripts
+title: 可用脚本
+sidebar_label: 可用脚本
 ---
 
-In the project directory, you can run:
+> 🌐 本文档由 [react/create-react-app](https://github.com/react/create-react-app) 翻译,英文原版见原项目。
+
+在项目目录下,你可以运行:
 
 ## `npm start`
 
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+以开发模式运行应用。打开 [http://localhost:3000](http://localhost:3000) 在浏览器中查看。
 
-The page will reload if you make edits. You will also see any lint errors in the console.
+编辑代码后页面会自动刷新,控制台中还会显示 lint 错误。
 
 ## `npm test`
 
-Launches the test runner in the interactive watch mode. See the section about [running tests](running-tests.md) for more information.
+以交互式监听模式启动测试运行器。更多信息参见[运行测试](running-tests.md)一节。
 
 ## `npm run build`
 
-Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+为生产环境构建应用到 `build` 文件夹。它会以生产模式正确打包 React,并为最佳性能优化构建。
 
-The build is minified and the filenames include the hashes. If necessary, classnames and function names can be enabled for profiling purposes. See the [production build](production-build.md) section for more information.
+构建产物经过压缩,文件名包含内容哈希。如有需要,可以启用类名和函数名用于性能分析。更多信息参见[生产构建](production-build.md)一节。
 
-Your app is ready to be deployed! See the section about [deployment](deployment.md) for more information about deploying your application to popular hosting providers.
+你的应用已准备好部署!关于如何把应用部署到主流托管服务商,参见[部署](deployment.md)一节。
 
 ## `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**注意:这是单向操作。一旦 `eject`,无法回头!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+如果你对构建工具和配置选项不满意,可以随时 `eject`。该命令会从项目中移除这个单一的构建依赖。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc.) into your project as dependencies in `package.json`. Technically, the distinction between dependencies and development dependencies is pretty arbitrary for front-end apps that produce static bundles.
+取而代之,它会把所有配置文件和传递依赖(webpack、Babel、ESLint 等)直接复制到你的项目中,作为 `package.json` 里的依赖。从技术上讲,对于产出静态 bundle 的前端应用来说,dependencies 和 devDependencies 的区分相当随意。
 
-In addition, it used to cause problems with some hosting platforms that didn't install development dependencies (and thus weren't able to build the project on the server or test it right before deployment). You are free to rearrange your dependencies in `package.json` as you see fit.
+此外,这曾经在某些不安装开发依赖的托管平台上引发问题(导致无法在服务器上构建项目或在部署前进行测试)。你可以随意按自己的需要重新整理 `package.json` 中的依赖。
 
-All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+除 `eject` 之外的所有命令仍然可用,只是它们会指向复制出来的脚本,方便你自行调整。从这一刻起,一切靠自己。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+你完全不必使用 `eject`。这套精选的功能集适合中小型部署,不要觉得有义务使用这个功能。不过我们也明白:如果你准备好的时候无法自定义,这个工具就没有意义了。

@@ -1,21 +1,23 @@
 ---
 id: updating-to-new-releases
-title: Updating to New Releases
+title: 升级到新版本
 ---
 
-Create React App is divided into two packages:
+> 🌐 本文档由 [react/create-react-app](https://github.com/react/create-react-app) 翻译,英文原版见原项目。
 
-- `create-react-app` is a global command-line utility that you use to create new projects.
-- `react-scripts` is a development dependency in the generated projects (including this one).
+Create React App 分为两个包:
 
-When you run `npx create-react-app my-app` it automatically installs the latest version of Create React App.
+- `create-react-app` 是全局命令行工具,用来创建新项目。
+- `react-scripts` 是生成项目(包括本项目)中的开发依赖。
 
-> If you've previously installed `create-react-app` globally via `npm install -g create-react-app`, please visit [Getting Started](getting-started.md) to learn about current installation steps.
+当你运行 `npx create-react-app my-app` 时,它会自动安装最新版本的 Create React App。
 
-Create React App creates the project with the latest version of `react-scripts` so you’ll get all the new features and improvements in newly created apps automatically.
+> 如果你之前通过 `npm install -g create-react-app` 全局安装过 `create-react-app`,请访问[快速上手](getting-started.md)了解当前的安装步骤。
 
-To update an existing project to a new version of `react-scripts`, [open the changelog](https://github.com/facebook/create-react-app/blob/main/CHANGELOG.md), find the version you’re currently on (check `package.json` in this folder if you’re not sure), and apply the migration instructions for the newer versions.
+Create React App 会用最新版的 `react-scripts` 创建项目,因此新建的应用会自动获得所有新特性和改进。
 
-In most cases bumping the `react-scripts` version in `package.json` and running `npm install` (or `yarn install`) in this folder should be enough, but it’s good to consult the [changelog](https://github.com/facebook/create-react-app/blob/main/CHANGELOG.md) for potential breaking changes.
+要把已有项目升级到新版 `react-scripts`,请[打开变更日志](https://github.com/facebook/create-react-app/blob/main/CHANGELOG.md),找到你当前使用的版本(不确定就查看本目录下的 `package.json`),然后按新版本的迁移说明操作。
 
-We commit to keeping the breaking changes minimal so you can upgrade `react-scripts` painlessly.
+大多数情况下,只需在 `package.json` 中提升 `react-scripts` 的版本号,然后在本目录运行 `npm install`(或 `yarn install`)即可,但最好还是查阅[变更日志](https://github.com/facebook/create-react-app/blob/main/CHANGELOG.md)确认是否存在破坏性变更。
+
+我们承诺把破坏性变更降到最少,让你可以无痛升级 `react-scripts`。

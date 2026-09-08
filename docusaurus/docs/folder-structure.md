@@ -1,9 +1,11 @@
 ---
 id: folder-structure
-title: Folder Structure
+title: 目录结构
 ---
 
-After creation, your project should look like this:
+> 🌐 本文档由 [react/create-react-app](https://github.com/react/create-react-app) 翻译,英文原版见原项目。
+
+创建完成后,你的项目应该长这样:
 
 ```
 my-app/
@@ -22,17 +24,17 @@ my-app/
     logo.svg
 ```
 
-For the project to build, **these files must exist with exact filenames**:
+要让项目成功构建,**这些文件必须以确切的文件名存在**:
 
-- `public/index.html` is the page template;
-- `src/index.js` is the JavaScript entry point.
+- `public/index.html` 是页面模板;
+- `src/index.js` 是 JavaScript 入口文件。
 
-You can delete or rename the other files.
+其他文件可以删除或重命名。
 
-You may create subdirectories inside `src`. For faster rebuilds, only files inside `src` are processed by webpack. You need to **put any JS and CSS files inside `src`**, otherwise webpack won’t see them.
+你可以在 `src` 里创建子目录。为了加快重新构建的速度,webpack 只处理 `src` 内的文件。你必须**把所有 JS 和 CSS 文件放进 `src`**,否则 webpack 看不到它们。
 
-Only files inside `public` can be used from `public/index.html`. Read instructions below for using assets from JavaScript and HTML.
+只有 `public` 内的文件才能被 `public/index.html` 引用。下面会介绍如何在 JavaScript 和 HTML 中使用资源文件。
 
-You can, however, create more top-level directories. They will not be included in the production build so you can use them for things like documentation.
+不过,你可以创建更多顶层目录。它们不会被打进生产构建,所以可以用来放文档之类的内容。
 
-If you have Git installed and your project is not part of a larger repository, then a new repository will be initialized resulting in an additional top-level `.git` directory.
+如果你安装了 Git,并且你的项目不是一个更大仓库的一部分,则会初始化一个新仓库,产生一个额外的顶层 `.git` 目录。
