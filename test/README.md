@@ -1,45 +1,47 @@
-# Create React App End-to-End Tests
+# Create React App 端到端测试(E2E Tests)
 
-## Usage
+> 🌐 本文档由 [react/create-react-app](https://github.com/react/create-react-app) 翻译,英文原版见原项目。
 
-These tests ensure various functionality contracts are upheld across dependency upgrades.
+## 用法
 
-To get started locally, run `npx jest test/ --watchAll`.
+这些测试确保各种功能契约在依赖升级后依然成立。
 
-It's suggested that you filter down tests to avoid re-running everything. The most common tests will be the webpack messages.<br>
-To only run the webpack messages, type `p` followed by `webpack-message` and press `[enter]`.
+在本地开始:运行 `npx jest test/ --watchAll`。
 
-## How do these work?
+建议过滤测试范围,避免每次全部重跑。最常见的测试是 webpack 报错信息相关的用例。<br>
+只想跑 webpack 消息相关测试时,输入 `p`,再输入 `webpack-message`,按 `[enter]`。
+
+## 它们是怎么工作的?
 
 ### `fixtures/`
 
-Each `fixture/` gets spun up in a temporary directory and has its dependencies installed with Yarn PnP (for speed).<br>
-To opt-out of PnP, create a `.disable-pnp` file in the specific fixture directory.
+每个 `fixture/` 都会在临时目录中启动,并使用 Yarn PnP 安装依赖(为了速度)。<br>
+想退出 PnP,在对应 fixture 目录里创建一个 `.disable-pnp` 文件即可。
 
-A global (`testSetup`) is created which has a few interesting properties:
+会创建一个全局对象(`testSetup`),它有几个有用的属性:
 
-- `testSetup.testDirectory`: the directory containing the test application
-- `testSetup.scripts`: an object allowing you to invoke `react-scripts` commands and friends
+- `testSetup.testDirectory`:包含测试应用的目录
+- `testSetup.scripts`:一个对象,允许你调用 `react-scripts` 及相关命令
 
-All tests for each `fixture/` are then ran.
+然后运行该 `fixture/` 的全部测试。
 
 #### `testSetup.scripts`
 
 ##### `start`
 
-This will run the `start` command, it can be ran asynchronously or blocking if `{ smoke: true }` is used.<br>
-If ran asynchronously, it will return the `port` and a `done` function to clean up the process.
-If ran blocking, it will return the `stdout` and `stderr` of the process.
+运行 `start` 命令,可以异步运行;传入 `{ smoke: true }` 时则以阻塞方式运行。<br>
+异步运行时,它会返回 `port` 和一个用于清理进程的 `done` 函数。
+阻塞运行时,它返回进程的 `stdout` 和 `stderr`。
 
 ##### `build`
 
-This will run the `build` command and return the `stdout` and `stderr` of the process.
+运行 `build` 命令,返回进程的 `stdout` 和 `stderr`。
 
 ##### `test`
 
-This will run the `test` command and return the `stdout` and `stderr` of the process.
+运行 `test` 命令,返回进程的 `stdout` 和 `stderr`。
 
 ##### `serve`
 
-This will run serve the application.
-It will return the `port` and a `done` function to clean up the process.
+运行并伺服该应用。
+它返回 `port` 和一个用于清理进程的 `done` 函数。
