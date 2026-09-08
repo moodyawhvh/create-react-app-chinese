@@ -8,18 +8,19 @@
 // @remove-on-eject-end
 'use strict';
 
-// Do this as the first thing so that any code reading it knows the right env.
+// 🌐 中文注释版:本文件由 react/create-react-app 中文翻译项目添加中文注释,代码逻辑与官方版本保持一致。
+
+// 必须最先做这件事,这样任何读取环境变量的代码都能拿到正确的环境。
 process.env.BABEL_ENV = 'production';
 process.env.NODE_ENV = 'production';
 
-// Makes the script crash on unhandled rejections instead of silently
-// ignoring them. In the future, promise rejections that are not handled will
-// terminate the Node.js process with a non-zero exit code.
+// 让脚本在出现未处理的 Promise 拒绝时直接崩溃,而不是静默忽略。
+// 未来,未被处理的 promise 拒绝将以非零退出码终止 Node.js 进程。
 process.on('unhandledRejection', err => {
   throw err;
 });
 
-// Ensure environment variables are read.
+// 确保环境变量已被读取。
 require('../config/env');
 
 const path = require('path');
@@ -40,13 +41,13 @@ const measureFileSizesBeforeBuild =
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
 const useYarn = fs.existsSync(paths.yarnLockFile);
 
-// These sizes are pretty large. We'll warn for bundles exceeding them.
+// 下面这些体积已经相当大了,超过它们的 bundle 会触发警告。
 const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024;
 const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 
 const isInteractive = process.stdout.isTTY;
 
-// Warn and crash if required files are missing
+// 缺少必需文件时给出警告并退出
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
 }
@@ -54,25 +55,24 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 const argv = process.argv.slice(2);
 const writeStatsJson = argv.indexOf('--stats') !== -1;
 
-// Generate configuration
+// 生成配置
 const config = configFactory('production');
 
-// We require that you explicitly set browsers and do not fall back to
-// browserslist defaults.
+// 我们要求显式声明目标浏览器,而不是回退到 browserslist 的默认值。
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 checkBrowsers(paths.appPath, isInteractive)
   .then(() => {
-    // First, read the current file sizes in build directory.
-    // This lets us display how much they changed later.
+    // 第一步:读取 build 目录中现有文件的体积,
+    // 这样之后才能展示它们变化了多少。
     return measureFileSizesBeforeBuild(paths.appBuild);
   })
   .then(previousFileSizes => {
-    // Remove all content but keep the directory so that
-    // if you're in it, you don't end up in Trash
+    // 清空目录内容但保留目录本身,
+    // 这样如果你正位于该目录中,它不会被移进回收站
     fs.emptyDirSync(paths.appBuild);
-    // Merge with the public folder
+    // 合并 public 文件夹
     copyPublicFolder();
-    // Start the webpack build
+    // 开始 webpack 构建
     return build(previousFileSizes);
   })
   .then(
@@ -139,7 +139,7 @@ checkBrowsers(paths.appPath, isInteractive)
     process.exit(1);
   });
 
-// Create the production build and print the deployment instructions.
+// 创建生产构建并打印部署说明。
 function build(previousFileSizes) {
   console.log('Creating an optimized production build...');
 
@@ -154,7 +154,7 @@ function build(previousFileSizes) {
 
         let errMessage = err.message;
 
-        // Add additional information for postcss errors
+        // 为 postcss 错误补充额外信息
         if (Object.prototype.hasOwnProperty.call(err, 'postcssNode')) {
           errMessage +=
             '\nCompileError: Begins at CSS selector ' +
@@ -171,8 +171,8 @@ function build(previousFileSizes) {
         );
       }
       if (messages.errors.length) {
-        // Only keep the first error. Others are often indicative
-        // of the same problem, but confuse the reader with noise.
+        // 只保留第一个错误。其余错误往往指向同一个问题,
+        // 只会让读者被噪音干扰。
         if (messages.errors.length > 1) {
           messages.errors.length = 1;
         }
@@ -184,7 +184,7 @@ function build(previousFileSizes) {
           process.env.CI.toLowerCase() !== 'false') &&
         messages.warnings.length
       ) {
-        // Ignore sourcemap warnings in CI builds. See #8227 for more info.
+        // 在 CI 构建中忽略 sourcemap 警告。更多信息见 #8227。
         const filteredWarnings = messages.warnings.filter(
           w => !/Failed to parse source map/.test(w)
         );
